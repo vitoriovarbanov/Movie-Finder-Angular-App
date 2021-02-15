@@ -20,10 +20,11 @@
   <div class="panel-body">
     <div class="row">
       <div class="col-md-2">
-        <div>
-          <img class="img-thumbnail" src="">
-          <h4></h4>
-          <p></p>
+        <div *ngFor='let response of responses'>
+          {{response.poster_path}}
+          <img class="img-thumbnail" src={{response.poster_path}}>
+          <h4>{{response.title}}</h4>
+          <p>{{response.release_date}}</p>
           <p><a class="btn btn-default" href="#">View Details</a></p>
         </div>
       </div>

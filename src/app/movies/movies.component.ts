@@ -16,12 +16,12 @@ export class MoviesComponent implements OnInit {
 
   ngOnInit(): void {
     this.movieService.getPopularMovies()
-      .pipe(takeUntil(this.destroy$))
+      .pipe(takeUntil(this.destroy$))             // NE E ZADULJITELNO ZA HTTP REQ DA IZPOLZVAME takeUntil
       .subscribe((movieData) => {
         this.responses = movieData
       })
   }
-
+ // IT IS NOT NECCESARY TO UNSUBSCRIBE FROM HTTP REQUEST!!!!!!!!!!! YOU CAN SKIP THE NEXT LINES OF CODE
   ngOnDestroy(): void {
     this.destroy$.next();  // trigger the unsubscribe
     this.destroy$.complete(); // finalize & clean up the subject stream

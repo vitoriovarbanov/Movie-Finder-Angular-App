@@ -17,7 +17,7 @@ import { InTheatersComponent } from './in-theaters/in-theaters.component';
     NavbarComponent,
     FooterComponent,
     MovieCardComponent,
-    InTheatersComponent
+    InTheatersComponent,
   ],
   imports: [
     BrowserModule,

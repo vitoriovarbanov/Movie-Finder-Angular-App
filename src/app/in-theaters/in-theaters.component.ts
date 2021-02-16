@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { tick } from '@angular/core/testing';
 
 @Component({
   selector: 'app-in-theaters',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./in-theaters.component.css']
 })
 export class InTheatersComponent implements OnInit {
+  @Input() movie
+  imagePath: string;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.imagePath = `https://image.tmdb.org/t/p/w500/${this.movie.poster_path}`
   }
 
 }

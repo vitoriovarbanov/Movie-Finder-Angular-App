@@ -1,25 +1,15 @@
 <main role="main">
-  <div class="jumbotron">
-    <div class="container">
-      <h1>Find a movie</h1>
-      <p>Search for a movie using the form below:</p>
-      <form>
-      <input class="form-control input-lg" type="text" placeholder="Search" aria-label="Search">
-      <button class="btn btn-default mt-2" type="submit">Search</button>
-      </form>
-    </div>
-   </div>
-
+    <app-search-form></app-search-form>
     <h3>Popular Movies</h3>
     <div class="row">
       <div class="col-lg-2" *ngFor="let response of responses">
-        <app-movie-card [res]="response" (showDetailsEmitter)='emitId($event)'></app-movie-card>
+        <app-movie-card [res]="response"></app-movie-card>
       </div>
     </div>
 
     <h3>In Theaters</h3>
     <div class="row">
-      <div class='col-lg-2' *ngFor='let movie of moviesInTheaters'>
+      <div class='col-lg-2' *ngFor='let movie of moviesInTheaters$ | async'>
         <app-in-theaters [movie]="movie"></app-in-theaters>
       </div>
     </div>

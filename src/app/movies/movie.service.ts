@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Movie } from '../models/movie';
 import { map, tap, pluck, toArray, flatMap } from 'rxjs/operators'
 import { from } from 'rxjs';
+import { MovieDetails } from '../models/movie-details';
 
 @Injectable({
   providedIn: 'root'
@@ -29,7 +30,7 @@ export class MovieService {
   }
 
   getMovieDetails(id){
-    return this.http.get<string>(`${this.baseUrl}movie/${id}${this.getMovieOverview}`)
-        .pipe(pluck('overview'))
+    return this.http.get<MovieDetails>(`${this.baseUrl}movie/${id}${this.getMovieOverview}`)
+
   }
 }

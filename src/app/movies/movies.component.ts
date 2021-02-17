@@ -10,7 +10,6 @@ import { takeUntil } from 'rxjs/operators';
 })
 export class MoviesComponent implements OnInit {
   responses;
-  moviesInTheaters;
   movieInfo: string;
   showInfo: boolean = false;
   private destroy$ = new Subject()
@@ -24,21 +23,18 @@ export class MoviesComponent implements OnInit {
         this.responses = movieData
         this.responses = this.responses.slice(0,5)
       })
-
-    this.movieService.getMoviesInTheaters()
-      .subscribe((data)=>{
-        this.moviesInTheaters = data
-        this.moviesInTheaters = this.moviesInTheaters.slice(0,5)
-      })
   }
 
-  emitId(id){
+  moviesInTheaters$ = this.movieService.getMoviesInTheaters()
+
+
+  /* emitId(id){
     this.movieService.getMovieDetails(id)
       .subscribe((data: string)=>{
         this.movieInfo = data;
         this.showInfo = true;
       })
-  }
+  } */
 
 
  // IT IS NOT NECCESARY TO UNSUBSCRIBE FROM HTTP REQUEST!!!!!!!!!!! YOU CAN SKIP THE NEXT LINES OF CODE

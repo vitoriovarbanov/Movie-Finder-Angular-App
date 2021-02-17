@@ -1,0 +1,18 @@
+<div class="jumbotron">
+  <div class="container">
+    <h1>Find a movie</h1>
+    <p>Search for a movie using the form below:</p>
+    <form [formGroup]='searchForm' (ngSubmit)="onSubmit(searchForm.value)">
+    <input class="form-control input-lg" formControlName='movieName' type="text" placeholder="Search" aria-label="Search">
+    <button class="btn btn-default mt-2" type="submit" [disabled]="searchForm.invalid">Search</button>
+    <ng-container *ngIf='searchForm.controls.movieName.errors && searchForm.controls.movieName.touched && searchForm.controls.movieName.dirty'>
+      <p *ngIf='searchForm.controls.movieName.errors.required ' style="color: red;">Enter valid movie name!</p>
+    </ng-container>
+    </form>
+  </div>
+ <!--  <div>
+    <span>{{searchForm.value | json}}</span>
+    <p>{{searchForm.valid}}</p>
+    <p>{{searchForm.controls.movieName.errors | json}}</p>
+  </div> -->
+ </div>

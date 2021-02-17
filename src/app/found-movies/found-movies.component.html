@@ -1,0 +1,10 @@
+<div class="card mb-3">
+  <img style="display: block;" [src]="{{movie.poster_path}}"/>
+  <div class="card-body">
+    <p class="card-text">{{movie.title}}</p>
+  </div>
+  <h6>{{movie.release_date}}</h6>
+  <div class="card-footer text-muted">
+    <button class="btn btn-primary" routerLink="{{movie.id}}">View Details</button>
+  </div>
+</div>

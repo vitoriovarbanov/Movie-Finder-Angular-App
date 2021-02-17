@@ -9,6 +9,8 @@ import { MovieService } from '../movies/movie.service';
 })
 export class SearchFormComponent implements OnInit {
   //@Output() searchMovieEmitter = new EventEmitter()
+  searchedMovies;
+  moviesFound: boolean = false;
 
   searchForm = new FormGroup({
     movieName: new FormControl('',[Validators.required])
@@ -23,6 +25,9 @@ export class SearchFormComponent implements OnInit {
 
   onSubmit(value){
     this.movieService.searchMovie(value.movieName)
+        .subscribe((data)=>{
+          this.searchedMovies = data;
+          this.moviesFound = true;
+        })
   }
-
 }

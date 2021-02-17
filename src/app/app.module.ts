@@ -12,6 +12,7 @@ import { MovieCardComponent } from './movie-card/movie-card.component';
 import { InTheatersComponent } from './in-theaters/in-theaters.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { SearchFormComponent } from './search-form/search-form.component';
+import { FoundMoviesComponent } from './found-movies/found-movies.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { SearchFormComponent } from './search-form/search-form.component';
     InTheatersComponent,
     MovieDetailsComponent,
     SearchFormComponent,
+    FoundMoviesComponent,
   ],
   imports: [
     BrowserModule,

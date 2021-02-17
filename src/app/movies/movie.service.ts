@@ -31,6 +31,10 @@ export class MovieService {
 
   getMovieDetails(id){
     return this.http.get<MovieDetails>(`${this.baseUrl}movie/${id}${this.getMovieOverview}`)
+  }
 
+  searchMovie(query: string){
+    return this.http.get<Movie[]>(`${this.baseUrl}search/movie${this.getMovieOverview}&query=${query}`)
+      .pipe(pluck('results'))
   }
 }

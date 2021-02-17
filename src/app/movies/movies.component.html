@@ -2,7 +2,7 @@
     <app-search-form></app-search-form>
     <h3>Popular Movies</h3>
     <div class="row">
-      <div class="col-lg-2" *ngFor="let response of responses">
+    <div class="col-lg-2" *ngFor="let response of responses">
         <app-movie-card [res]="response"></app-movie-card>
       </div>
     </div>

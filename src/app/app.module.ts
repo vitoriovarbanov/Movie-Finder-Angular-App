@@ -13,6 +13,7 @@ import { InTheatersComponent } from './in-theaters/in-theaters.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { SearchFormComponent } from './search-form/search-form.component';
 import { FoundMoviesComponent } from './found-movies/found-movies.component';
+import { SingleMovieResolver } from './models/resolvers/single-movie.resolver';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { FoundMoviesComponent } from './found-movies/found-movies.component';
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [SingleMovieResolver],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

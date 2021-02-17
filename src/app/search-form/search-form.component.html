@@ -17,11 +17,9 @@
   </div> -->
  </div>
 
-<div *ngIf='moviesFound'>
-  <app-found-movies></app-found-movies>
-</div>
 <div class="row" *ngIf='moviesFound'>
   <div class='col-lg-2' *ngFor='let movie of searchedMovies'>
     <app-found-movies [movie]="movie"></app-found-movies>
   </div>
 </div>
+<button class="btn btn-default mt-2" *ngIf='moviesFound' (click)='hideSection()'>Hide</button>

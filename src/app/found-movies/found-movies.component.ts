@@ -7,10 +7,13 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class FoundMoviesComponent implements OnInit {
   @Input() movie;
+  imagePath;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
+    this.imagePath = `https://image.tmdb.org/t/p/w500/${this.movie.poster_path}`
   }
 
 }

@@ -30,4 +30,8 @@ export class SearchFormComponent implements OnInit {
           this.moviesFound = true;
         })
   }
+
+  hideSection(){
+    this.moviesFound = false;
+  }
 }

@@ -1,5 +1,5 @@
 <div class="card mb-3">
-  <img style="display: block;" [src]="{{movie.poster_path}}"/>
+  <img style="display: block;" src="{{imagePath}}"/>
   <div class="card-body">
     <p class="card-text">{{movie.title}}</p>
   </div>
@@ -8,3 +8,4 @@
     <button class="btn btn-primary" routerLink="{{movie.id}}">View Details</button>
   </div>
 </div>
+

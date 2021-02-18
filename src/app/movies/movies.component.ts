@@ -30,7 +30,6 @@ export class MoviesComponent implements OnInit {
       }) */
     this.movieService.getUpcomingMovies()
         .subscribe((upMovies)=>{
-          console.log(upMovies)
             this.upcomingMovies = upMovies;
         })
   }

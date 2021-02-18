@@ -15,6 +15,7 @@ import { SearchFormComponent } from './search-form/search-form.component';
 import { FoundMoviesComponent } from './found-movies/found-movies.component';
 import { SingleMovieResolver } from './models/resolvers/single-movie.resolver';
 import { HomepageMoviesResolver } from './models/resolvers/homepage-movies.resolver';
+import { SearchedMoviesComponent } from './searched-movies/searched-movies.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { HomepageMoviesResolver } from './models/resolvers/homepage-movies.resol
     MovieDetailsComponent,
     SearchFormComponent,
     FoundMoviesComponent,
+    SearchedMoviesComponent,
   ],
   imports: [
     BrowserModule,

@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { MovieService } from './movie.service';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-movies',
@@ -14,15 +15,18 @@ export class MoviesComponent implements OnInit {
   showInfo: boolean = false;
   private destroy$ = new Subject()
 
-  constructor(private movieService: MovieService) { }
+  constructor(private movieService: MovieService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.movieService.getPopularMovies()
+    console.log(this.route.snapshot.data)
+    this.responses = this.route.snapshot.data.homepageMovies['results']
+    this.responses = this.responses.slice(0,5)
+    /* this.movieService.getPopularMovies()
       .pipe(takeUntil(this.destroy$))             // NE E ZADULJITELNO ZA HTTP REQ DA IZPOLZVAME takeUntil
       .subscribe((movieData) => {
         this.responses = movieData
         this.responses = this.responses.slice(0,5)
-      })
+      }) */
   }
 
   moviesInTheaters$ = this.movieService.getMoviesInTheaters()

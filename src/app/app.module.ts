@@ -14,6 +14,7 @@ import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { SearchFormComponent } from './search-form/search-form.component';
 import { FoundMoviesComponent } from './found-movies/found-movies.component';
 import { SingleMovieResolver } from './models/resolvers/single-movie.resolver';
+import { HomepageMoviesResolver } from './models/resolvers/homepage-movies.resolver';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import { SingleMovieResolver } from './models/resolvers/single-movie.resolver';
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [SingleMovieResolver],
+  providers: [SingleMovieResolver, HomepageMoviesResolver],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

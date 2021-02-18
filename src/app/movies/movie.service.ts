@@ -21,7 +21,7 @@ export class MovieService {
 
   getPopularMovies(){
     return this.http.get<Movie[]>(`${this.baseUrl}${this.popularMovies}${this.apiKey}`)
-        .pipe(pluck('results'))
+        //.pipe(pluck('results'))
   }
 
   getMoviesInTheaters(){

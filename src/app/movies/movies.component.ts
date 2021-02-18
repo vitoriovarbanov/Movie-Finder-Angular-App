@@ -12,13 +12,14 @@ import { ActivatedRoute } from '@angular/router';
 export class MoviesComponent implements OnInit {
   responses;
   movieInfo: string;
+  upcomingMovies;
   showInfo: boolean = false;
   private destroy$ = new Subject()
 
   constructor(private movieService: MovieService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    console.log(this.route.snapshot.data)
+    //console.log(this.route.snapshot.data)
     this.responses = this.route.snapshot.data.homepageMovies['results']
     this.responses = this.responses.slice(0,5)
     /* this.movieService.getPopularMovies()
@@ -27,6 +28,11 @@ export class MoviesComponent implements OnInit {
         this.responses = movieData
         this.responses = this.responses.slice(0,5)
       }) */
+    this.movieService.getUpcomingMovies()
+        .subscribe((upMovies)=>{
+          console.log(upMovies)
+            this.upcomingMovies = upMovies;
+        })
   }
 
   moviesInTheaters$ = this.movieService.getMoviesInTheaters()

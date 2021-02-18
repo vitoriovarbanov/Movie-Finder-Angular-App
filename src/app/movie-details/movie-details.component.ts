@@ -13,7 +13,7 @@ export class MovieDetailsComponent implements OnInit {
   id: string
   movieGenres: string;
 
-  constructor(private movieService: MovieService,
+  constructor(private movieService: MovieService, // S RESOLVERA MOJEM DA MAHNEM DEPENDECY INJ NA SERVICE, ZASHTOTO GO VIKAME DIREKTNO V SINGLE_MOVIE_RESOLVER!!
     private route: ActivatedRoute) {
     }
 

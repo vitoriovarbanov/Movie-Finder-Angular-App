@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Movie } from '../models/movie';
-import { map, tap, pluck, toArray, flatMap } from 'rxjs/operators'
+import { map, tap, pluck, toArray, flatMap, filter } from 'rxjs/operators'
 import { from } from 'rxjs';
 import { MovieDetails } from '../models/movie-details';
 
@@ -27,6 +27,13 @@ export class MovieService {
   getMoviesInTheaters(){
     return this.http.get<Movie[]>(`${this.baseUrl}${this.theatersDiscover}${this.apiKey}`)
         .pipe(pluck('results'))
+  }
+
+  getUpcomingMovies(){
+    return this.http.get<any>(`${this.baseUrl}movie/upcoming${this.getMovieOverview}&language=en-US&page=1`)
+        .pipe(map((data)=>{
+            return data['results'].slice(0,6)
+        }))
   }
 
   getMovieDetails(id){

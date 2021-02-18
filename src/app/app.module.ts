@@ -17,6 +17,7 @@ import { SearchedMoviesComponent } from './searched-movies/searched-movies.compo
 import { SingleMovieResolver } from './models/resolvers/single-movie.resolver';
 import { HomepageMoviesResolver } from './models/resolvers/homepage-movies.resolver';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     HttpClientModule,
     ReactiveFormsModule,
     AppRoutingModule,
+    AuthModule
   ],
   providers: [SingleMovieResolver,HomepageMoviesResolver],
   bootstrap: [AppComponent]

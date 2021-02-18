@@ -1,1 +1,43 @@
-<p>register works!</p>
+<div class="jumbotron">
+  <div class="container">
+    <h3>Register Form</h3>
+    <form id='registerForm' [formGroup]='registerForm'>
+      <div class="form-group">
+          <label class="control-label">Name</label>
+          <input class="form-control" type="text" formControlName='name'>
+      </div>
+      <ng-container *ngIf='registerForm.controls.name.errors'>
+        <p *ngIf='registerForm.controls.name.errors.required &&
+         registerForm.controls.name.touched && registerForm.controls.name.errors.pattern'  style="color: red;">Enter valid name!</p>
+      </ng-container>
+
+      <div class="form-group">
+        <label class="form-control-label" for="email">Email</label>
+        <input type="email" class="form-control" formControlName='email'>
+      </div>
+
+      <div class="form-group">
+        <label class="form-control-label">Phone Number</label>
+        <input type="text" class="form-control" formControlName='phoneNumber'>
+      </div>
+
+      <div class="form-group">
+        <label class="col-form-label">Password</label>
+        <input type="password" class="form-control" formControlName='password'>
+      </div>
+
+      <div class="form-group">
+        <label class="col-form-label">Re-Enter Password</label>
+        <input class="form-control" type="password" formControlName='repeatPassword'>
+      </div>
+
+      <button class="btn btn-default mt-2" type="submit">Register</button>
+    </form>
+  </div>
+  <div>
+    <span>{{registerForm.value | json}}</span>
+    <p>{{registerForm.valid}}</p>
+    <p>{{registerForm.controls.name.errors | json}}</p>
+  </div>
+ </div>
+

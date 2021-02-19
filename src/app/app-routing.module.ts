@@ -14,8 +14,7 @@ const routes: Route[] = [
   { path: 'movies', component: MoviesComponent, resolve: { homepageMovies: HomepageMoviesResolver } },
   { path: 'movies/search', component: SearchedMoviesComponent },
   { path: 'movies/:id', component: MovieDetailsComponent, resolve: { singleMovie: SingleMovieResolver } },
-  { path: 'register', loadChildren: () => import('./auth2/auth2.module').then(m=>m.Auth2Module) },
-  { path: 'login', loadChildren: ()=> import('./auth2/auth2.module').then(m=>m.Auth2Module)},
+  { path: 'auth', loadChildren: () => import('./auth2/auth2.module').then(m=>m.Auth2Module) },
   { path: '', pathMatch: 'full', redirectTo: 'movies' },
   { path: '**', component: PageNotFoundComponent },
 

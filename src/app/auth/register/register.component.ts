@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms'
 import { PasswordMatch } from '../validators/password-match';
 import { CorrectUrl } from '../validators/correct-url';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -18,9 +19,13 @@ export class RegisterComponent implements OnInit {
     repeatPassword: new FormControl('', [Validators.required])
   }, {validators: [this.matchPasswords.validate]})
 
-  constructor(private matchPasswords: PasswordMatch, private correctUrl: CorrectUrl) { }
+  constructor(private matchPasswords: PasswordMatch, private correctUrl: CorrectUrl, private router: Router) { }
 
   ngOnInit(): void {
   }
 
+
+  onSubmit(){
+    this.router.navigate(['/movies'])
+  }
 }

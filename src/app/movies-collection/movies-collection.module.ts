@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 import { MoviesComponent } from './movies/movies.component';
 import { FoundMoviesComponent } from './found-movies/found-movies.component';
@@ -10,6 +11,7 @@ import { MovieCardComponent } from './movie-card/movie-card.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { SearchedMoviesComponent } from './searched-movies/searched-movies.component';
 import { SearchFormComponent } from './search-form/search-form.component';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { SearchFormComponent } from './search-form/search-form.component';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
+    HttpClientModule
   ],exports: [
     MoviesComponent,
     FoundMoviesComponent,

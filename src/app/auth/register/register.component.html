@@ -3,23 +3,53 @@
     <h3>Register Form</h3>
     <form id='registerForm' [formGroup]='registerForm'>
       <div class="form-group">
-          <label class="control-label">Name</label>
-          <input class="form-control" type="text" formControlName='name'>
+        <label class="control-label">Name</label>
+        <input class="form-control" type="text" formControlName='name'
+          [ngClass]="{'is-invalid': registerForm.controls.name.invalid && registerForm.controls.name.touched}">
       </div>
-      <ng-container *ngIf='registerForm.controls.name.errors'>
-        <p *ngIf='registerForm.controls.name.errors.required &&
-         registerForm.controls.name.touched && registerForm.controls.name.errors.pattern'  style="color: red;">Enter valid name!</p>
+      <ng-container
+        *ngIf='registerForm.controls.name.errors && registerForm.controls.name.touched && registerForm.controls.name.dirty'>
+        <p *ngIf='registerForm.controls.name.errors.required' style="color: red;">Enter valid name!</p>
+        <p *ngIf='registerForm.controls.name.errors.pattern' style="color: red;">Enter valid name!</p>
       </ng-container>
 
       <div class="form-group">
         <label class="form-control-label" for="email">Email</label>
-        <input type="email" class="form-control" formControlName='email'>
+        <input type="email" class="form-control" formControlName='email'
+          [ngClass]="{'is-invalid': registerForm.controls.email.invalid && registerForm.controls.email.touched}">
       </div>
+      <ng-container
+        *ngIf='registerForm.controls.email.errors && registerForm.controls.email.touched && registerForm.controls.email.dirty'>
+        <p *ngIf='registerForm.controls.email.errors.required' style="color: red;">Enter valid email!</p>
+        <p *ngIf='registerForm.controls.email.errors.email' style="color: red;">Enter valid email!</p>
+      </ng-container>
 
       <div class="form-group">
         <label class="form-control-label">Phone Number</label>
-        <input type="text" class="form-control" formControlName='phoneNumber'>
+        <input type="number" class="form-control" formControlName='phoneNumber'
+          [ngClass]="{'is-valid': registerForm.controls.phoneNumber.valid}">
       </div>
+      <ng-container
+        *ngIf='registerForm.controls.phoneNumber.errors && registerForm.controls.phoneNumber.touched && registerForm.controls.phoneNumber.dirty'>
+        <p *ngIf='registerForm.controls.phoneNumber.errors.required' style="color: red;">Enter valid Phone Number!</p>
+        <p *ngIf='registerForm.controls.phoneNumber.errors.minlength' style="color: red;">Enter valid Phone Number!</p>
+      </ng-container>
+      <div>
+        <span>{{registerForm.controls.phoneNumber.errors | json}}</span>
+      </div>
+
+      <div class="form-group">
+        <label class="form-control-label">Enter Certificate URL</label>
+        <input type="text" class="form-control" formControlName='certificate'
+        [ngClass]="{'is-invalid': registerForm.controls.certificate.invalid && registerForm.controls.certificate.touched}">
+      </div>
+      <ng-container
+        *ngIf='registerForm.controls.certificate.errors && registerForm.controls.certificate.touched && registerForm.controls.certificate.dirty'>
+        <p *ngIf='registerForm.controls.certificate.errors' style="color: red;">URL Must be of format - http://yourURL.jpg</p>
+      </ng-container>
+      <div>
+      </div>
+
 
       <div class="form-group">
         <label class="col-form-label">Password</label>
@@ -31,13 +61,12 @@
         <input class="form-control" type="password" formControlName='repeatPassword'>
       </div>
 
-      <button class="btn btn-default mt-2" type="submit">Register</button>
+      <button class="btn btn-default mt-2" type="submit" [disabled]='registerForm.invalid'>Register</button>
     </form>
   </div>
   <div>
     <span>{{registerForm.value | json}}</span>
     <p>{{registerForm.valid}}</p>
-    <p>{{registerForm.controls.name.errors | json}}</p>
+    <p>{{registerForm.errors | json }}</p>
   </div>
- </div>
-
+</div>

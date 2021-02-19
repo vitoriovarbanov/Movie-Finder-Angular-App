@@ -31,7 +31,7 @@ import { AuthModule } from './auth/auth.module';
     MoviesComponent,
     SearchFormComponent,
     SearchedMoviesComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,

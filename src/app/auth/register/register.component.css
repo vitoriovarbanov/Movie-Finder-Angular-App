@@ -1,3 +1,7 @@
 #registerForm{
   width: 60%;
 }
+
+.buttonValid{
+  background-color: green;
+}

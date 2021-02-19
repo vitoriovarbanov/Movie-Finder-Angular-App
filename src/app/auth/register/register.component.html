@@ -27,7 +27,7 @@
       <div class="form-group">
         <label class="form-control-label">Phone Number</label>
         <input type="number" class="form-control" formControlName='phoneNumber'
-          [ngClass]="{'is-valid': registerForm.controls.phoneNumber.valid}">
+          [ngClass]="{'is-invalid': registerForm.controls.phoneNumber.invalid && registerForm.controls.email.touched}">
       </div>
       <ng-container
         *ngIf='registerForm.controls.phoneNumber.errors && registerForm.controls.phoneNumber.touched && registerForm.controls.phoneNumber.dirty'>
@@ -35,13 +35,14 @@
         <p *ngIf='registerForm.controls.phoneNumber.errors.minlength' style="color: red;">Enter valid Phone Number!</p>
       </ng-container>
       <div>
-        <span>{{registerForm.controls.phoneNumber.errors | json}}</span>
+        <!-- <span>{{registerForm.controls.phoneNumber.errors | json}}</span> -->
       </div>
 
       <div class="form-group">
         <label class="form-control-label">Enter Certificate URL</label>
         <input type="text" class="form-control" formControlName='certificate'
-        [ngClass]="{'is-invalid': registerForm.controls.certificate.invalid && registerForm.controls.certificate.touched}">
+        [ngClass]="{'is-invalid': registerForm.controls.certificate.invalid && registerForm.controls.certificate.touched}"
+        placeholder="URL Must be of format - http://yourURL.jpg">
       </div>
       <ng-container
         *ngIf='registerForm.controls.certificate.errors && registerForm.controls.certificate.touched && registerForm.controls.certificate.dirty'>
@@ -61,12 +62,12 @@
         <input class="form-control" type="password" formControlName='repeatPassword'>
       </div>
 
-      <button class="btn btn-default mt-2" type="submit" [disabled]='registerForm.invalid'>Register</button>
+      <button class="btn btn-default mt-2" type="submit" [disabled]='registerForm.invalid' [ngClass]="{'buttonValid': registerForm.valid}">Register</button>
     </form>
   </div>
-  <div>
+ <!--  <div>
     <span>{{registerForm.value | json}}</span>
     <p>{{registerForm.valid}}</p>
     <p>{{registerForm.errors | json }}</p>
-  </div>
+  </div> -->
 </div>

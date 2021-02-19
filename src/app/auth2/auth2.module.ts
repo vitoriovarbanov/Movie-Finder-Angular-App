@@ -1,21 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
+import { Auth2RoutingModule } from './auth2-routing.module';
 import { RegisterComponent } from './register/register.component';
-import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
-  declarations: [
-    RegisterComponent
-  ],
+  declarations: [RegisterComponent],
   imports: [
     CommonModule,
-    RouterModule,
-    ReactiveFormsModule
-  ],
-  exports: [
-    RegisterComponent
+    Auth2RoutingModule,
+    ReactiveFormsModule,
+    RouterModule
   ]
 })
-export class AuthModule { }
+export class Auth2Module { }

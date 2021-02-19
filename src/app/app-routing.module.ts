@@ -9,15 +9,15 @@ import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.co
 import { SingleMovieResolver } from './models/resolvers/single-movie.resolver';
 import { HomepageMoviesResolver } from './models/resolvers/homepage-movies.resolver';
 
-import { RegisterComponent } from './auth/register/register.component';
 
 const routes: Route[] = [
+  { path: 'register', loadChildren: () => import('./auth2/auth2.module').then(m=>m.Auth2Module) },
   { path: 'movies', component: MoviesComponent, resolve: { homepageMovies: HomepageMoviesResolver } },
   { path: 'movies/search', component: SearchedMoviesComponent },
   { path: 'movies/:id', component: MovieDetailsComponent, resolve: { singleMovie: SingleMovieResolver } },
-  { path: 'register', component: RegisterComponent },
   { path: '', pathMatch: 'full', redirectTo: 'movies' },
   { path: '**', component: PageNotFoundComponent },
+
 ];
 
 @NgModule({

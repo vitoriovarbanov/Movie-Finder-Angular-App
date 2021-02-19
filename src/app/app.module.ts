@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { SingleMovieResolver } from './models/resolvers/single-movie.resolver';
 import { HomepageMoviesResolver } from './models/resolvers/homepage-movies.resolver';
 
-import { AuthModule } from './auth/auth.module';
 import { MoviesCollectionModule } from './movies-collection/movies-collection.module';
 import { SharedModule } from './shared/shared.module';
 
@@ -19,7 +18,6 @@ import { SharedModule } from './shared/shared.module';
     BrowserModule,
     AppRoutingModule,
     MoviesCollectionModule,
-    AuthModule,
     SharedModule
   ],
   providers: [SingleMovieResolver,HomepageMoviesResolver],

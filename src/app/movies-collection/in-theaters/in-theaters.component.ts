@@ -17,3 +17,4 @@ export class InTheatersComponent implements OnInit {
   }
 
 }
+

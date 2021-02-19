@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Movie } from '../models/movie';
 import { MovieService } from '../movies/movie.service';
 import { ActivatedRoute, Params } from '@angular/router';
 
@@ -29,3 +28,4 @@ export class SearchedMoviesComponent implements OnInit {
 
 
 }
+

@@ -20,6 +20,7 @@ export class MoviesComponent implements OnInit {
 
   ngOnInit(): void {
     //console.log(this.route.snapshot.data)
+    console.log(this.route.snapshot.data)
     this.responses = this.route.snapshot.data.homepageMovies['results']
     this.responses = this.responses.slice(0,5)
     /* this.movieService.getPopularMovies()

@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Route } from '@angular/router';
 
-import { MoviesComponent } from './movies/movies.component';
-import { MovieDetailsComponent } from './movie-details/movie-details.component';
-import { SearchedMoviesComponent } from './searched-movies/searched-movies.component';
+import { MoviesComponent } from './movies-collection/movies/movies.component';
+import { MovieDetailsComponent } from './movies-collection/movie-details/movie-details.component';
+import { SearchedMoviesComponent } from './movies-collection/searched-movies/searched-movies.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 import { SingleMovieResolver } from './models/resolvers/single-movie.resolver';

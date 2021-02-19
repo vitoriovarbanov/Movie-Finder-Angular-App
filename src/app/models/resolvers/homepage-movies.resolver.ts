@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core'
 import { Movie } from '../movie';
-import { MovieService } from 'src/app/movies/movie.service';
+import { MovieService } from 'src/app/movies-collection/movies/movie.service';
 import { ActivatedRouteSnapshot, RouterStateSnapshot, Resolve } from '@angular/router';
 
 

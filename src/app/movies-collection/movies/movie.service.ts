@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Movie } from '../models/movie';
+import { Movie } from '../../models/movie';
 import { map, tap, pluck, toArray, flatMap, filter } from 'rxjs/operators'
 import { from } from 'rxjs';
-import { MovieDetails } from '../models/movie-details';
+import { MovieDetails } from '../../models/movie-details';
 
 @Injectable({
   providedIn: 'root'

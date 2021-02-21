@@ -12,16 +12,14 @@ import { EmailAsyncValidator } from '../validators/email-async-validator'
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  test;
-
-  registerForm = new FormGroup({
+    registerForm = new FormGroup({
     name: new FormControl('', [Validators.required, Validators.pattern('[A-z\\s]+')]),
     email: new FormControl('', [Validators.required, Validators.email], [this.emailValidator.validate]),
-    phoneNumber: new FormControl('' , [Validators.required, Validators.minLength(10)]),
+    phoneNumber: new FormControl('', [Validators.required, Validators.minLength(10)]),
     certificate: new FormControl('', [Validators.required, this.correctUrl.validate]),
     password: new FormControl('', [Validators.required]),
     repeatPassword: new FormControl('', [Validators.required])
-  }, {validators: [this.matchPasswords.validate]})
+  }, { validators: [this.matchPasswords.validate] })
 
   constructor(private matchPasswords: PasswordMatch,
     private correctUrl: CorrectUrl,
@@ -30,15 +28,10 @@ export class RegisterComponent implements OnInit {
     private emailValidator: EmailAsyncValidator) { }
 
   ngOnInit(): void {
-   /*  this.authService.getListOfRegisteredUsers()
-        .subscribe((data)=>{
-          console.log(data)
-        })
-    this.test = this.test.find(x=>x.email === "br_br@gmail.com") */
   }
 
 
-  onSubmit(){
-    this.router.navigate(['/movies'])
+  onSubmit() {
+    this.router.navigate(['auth/login'])
   }
 }

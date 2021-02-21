@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core'
 import { AsyncValidator, FormControl } from '@angular/forms';
-import { AuthService } from '../auth.service';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators'
 
@@ -12,7 +11,7 @@ interface User{
 @Injectable({providedIn: 'root'})
 export class EmailAsyncValidator implements AsyncValidator {
   firebaseUsers: string = `https://movie-finder-angular-default-rtdb.firebaseio.com/users.json`
-  constructor(private auth: AuthService, private http: HttpClient){}
+  constructor(private http: HttpClient){}
 
   validate = (formControl: FormControl) => {
     let email  = formControl.value;

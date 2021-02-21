@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { Observable } from 'rxjs';
 
 interface User{
   name: string;
@@ -12,8 +13,11 @@ interface User{
 })
 export class AuthService {
   firebaseUsers: string = `https://movie-finder-angular-default-rtdb.firebaseio.com/users.json`
+  user: Observable<any>
 
-  constructor(private http: HttpClient, private firebaseAuth: AngularFireAuth) { }
+  constructor(private http: HttpClient, private firebaseAuth: AngularFireAuth) {
+    this.user = firebaseAuth.authState;
+  }
 
   signup(email: string, password: string) {
     this.firebaseAuth

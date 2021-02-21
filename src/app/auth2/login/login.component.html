@@ -1,6 +1,31 @@
-<p>login works!</p>
-<p>login works!</p>
-<p>login works!</p>
-<p>login works!</p>
-<p>login works!</p>
-<p>login works!</p>
+<div class="jumbotron">
+  <div class="container">
+    <h3>Please enter enter Login credentials:</h3>
+    <form id='registerForm' [formGroup]='loginForm' (ngSubmit)='onLoginClick()'>
+
+      <div class="form-group">
+        <label class="form-control-label" for="email">Email</label>
+        <input type="email" class="form-control" formControlName='email'
+          [ngClass]="{'is-invalid': loginForm.controls.email.invalid && loginForm.controls.email.touched,
+         'is-valid': loginForm.controls.email.valid && loginForm.controls.email.touched}">
+      </div>
+      <ng-container
+        *ngIf='loginForm.controls.email.errors && loginForm.controls.email.touched && loginForm.controls.email.dirty'>
+        <p *ngIf='loginForm.controls.email.errors.required' style="color: red;">Enter valid email!</p>
+        <p *ngIf='loginForm.controls.email.errors.invalidEmail' style="color: red;">There is an registered account using this email!</p>
+      </ng-container>
+
+      <div class="form-group">
+        <label class="col-form-label">Password</label>
+        <input type="password" class="form-control" formControlName='password'>
+      </div>
+
+      <button class="btn btn-default mt-2" type="submit" [disabled]='loginForm.invalid' [ngClass]="{'buttonValid': loginForm.valid}">Login</button>
+    </form>
+  </div>
+ <!--  <div>
+    <span>{{registerForm.value | json}}</span>
+    <p>{{registerForm.valid}}</p>
+    <p>{{registerForm.errors | json }}</p>
+  </div> -->
+</div>

@@ -67,6 +67,10 @@
       <button class="btn btn-default mt-2" type="submit" [disabled]='registerForm.invalid' [ngClass]="{'buttonValid': registerForm.valid}">Register</button>
     </form>
   </div>
+
+  <div>
+    <span *ngIf='showSuccess' ngClass='buttonValid'>{{successMsg}}</span>
+  </div>
  <!--  <div>
     <span>{{registerForm.value | json}}</span>
     <p>{{registerForm.valid}}</p>

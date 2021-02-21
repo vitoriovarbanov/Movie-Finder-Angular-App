@@ -1,6 +1,18 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+
+var firebaseConfig = {
+  apiKey: "AIzaSyCGVg2Fbxqw3P1J059PT3Ja7kpofaxZME0",
+  authDomain: "movie-finder-angular.firebaseapp.com",
+  databaseURL: "https://movie-finder-angular-default-rtdb.firebaseio.com",
+  projectId: "movie-finder-angular",
+  storageBucket: "movie-finder-angular.appspot.com",
+  messagingSenderId: "155297940102",
+  appId: "1:155297940102:web:af308774acae8aebdc8707"
+};
 
 import { AppComponent } from './app.component';
 
@@ -18,7 +30,9 @@ import { SharedModule } from './shared/shared.module';
     BrowserModule,
     AppRoutingModule,
     MoviesCollectionModule,
-    SharedModule
+    SharedModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireAuthModule,
   ],
   providers: [SingleMovieResolver,HomepageMoviesResolver],
   bootstrap: [AppComponent]

@@ -12,7 +12,9 @@ import { EmailAsyncValidator } from '../validators/email-async-validator'
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-    registerForm = new FormGroup({
+  successMsg: string = 'Success';
+  showSuccess = false;
+  registerForm = new FormGroup({
     name: new FormControl('', [Validators.required, Validators.pattern('[A-z\\s]+')]),
     email: new FormControl('', [Validators.required, Validators.email], [this.emailValidator.validate]),
     phoneNumber: new FormControl('', [Validators.required, Validators.minLength(10)]),
@@ -24,14 +26,16 @@ export class RegisterComponent implements OnInit {
   constructor(private matchPasswords: PasswordMatch,
     private correctUrl: CorrectUrl,
     private router: Router,
-    private authService: AuthService,
+    public authService: AuthService,
     private emailValidator: EmailAsyncValidator) { }
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void { }
 
   onSubmit() {
-    this.router.navigate(['auth/login'])
+    setTimeout(() => {
+      this.authService.signup(this.registerForm.value.email, this.registerForm.value.password)
+      this.router.navigate(['auth/login'])
+    },1000)
+    this.showSuccess = true;
   }
 }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators'
+import { AngularFireAuth } from '@angular/fire/auth';
 
 interface User{
   name: string;
@@ -13,12 +13,32 @@ interface User{
 export class AuthService {
   firebaseUsers: string = `https://movie-finder-angular-default-rtdb.firebaseio.com/users.json`
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private firebaseAuth: AngularFireAuth) { }
 
-  getListOfRegisteredUsers(){
-    return this.http.get<User[]>(`${this.firebaseUsers}`)
-        .pipe(map((data)=>{
-          return data = Object.values(data)
-        }))
+  signup(email: string, password: string) {
+    this.firebaseAuth
+      .createUserWithEmailAndPassword(email, password)
+      .then(value => {
+        console.log('Success!', value);
+      })
+      .catch(err => {
+        console.log('Something went wrong:',err.message);
+      });
   }
+
+  login(email: string, password: string) {
+    this.firebaseAuth
+      .signInWithEmailAndPassword(email, password)
+      .then(value => {
+        ///console.log('Nice, it worked!'); IMPLEMENT LOGIC TO SAVE WTOKEN ??? COOKIE ?? AND AUTH GUARD
+      })
+      .catch(err => {
+        console.log('Something went wrong:',err.message);
+      });
+  }
+
+  logout() {
+    this.firebaseAuth.signOut();
+  }
+
 }

@@ -15,7 +15,7 @@ export class SearchFormComponent implements OnInit {
   })
 
   constructor(private router: Router) {
-    console.log(this.searchForm.controls.movieName)
+    //console.log(this.searchForm.controls.movieName)
   }
 
   ngOnInit(): void {

@@ -21,6 +21,7 @@ import { HomepageMoviesResolver } from './models/resolvers/homepage-movies.resol
 
 import { MoviesCollectionModule } from './movies-collection/movies-collection.module';
 import { SharedModule } from './shared/shared.module';
+import { AuthService } from './auth2/auth.service';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,7 @@ import { SharedModule } from './shared/shared.module';
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule,
   ],
-  providers: [SingleMovieResolver,HomepageMoviesResolver],
+  providers: [SingleMovieResolver,HomepageMoviesResolver, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

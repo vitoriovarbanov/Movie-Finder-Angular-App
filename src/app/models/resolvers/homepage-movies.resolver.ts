@@ -10,7 +10,7 @@ export class HomepageMoviesResolver implements Resolve<Movie[]>{
   constructor(private movieService: MovieService){}
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot){
-    console.log(route.params)
+    //console.log(route.params)
     return this.movieService.getPopularMovies()
   }
 

@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from './auth2/auth.service';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'movie-finder';
+  signedin$: BehaviorSubject<boolean>
+  constructor(private authService: AuthService){
+    this.signedin$ = this.authService.signedin$
+  }
+
 }

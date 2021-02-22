@@ -34,7 +34,6 @@ export class RegisterComponent implements OnInit {
   onSubmit() {
     setTimeout(() => {
       this.authService.signup(this.registerForm.value.email, this.registerForm.value.password)
-      this.router.navigate(['auth/login'])
     },1000)
     this.showSuccess = true;
   }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
-import { FormControl, FormGroup, Validator, Validators } from '@angular/forms'
+import { FormControl, FormGroup, Validators } from '@angular/forms'
 
 @Component({
   selector: 'app-login',
@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   }
 
   onLoginClick(){
-
+    this.authService.login(this.loginForm.value.email, this.loginForm.value.password)
   }
 
 }

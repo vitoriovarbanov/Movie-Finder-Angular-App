@@ -12,7 +12,7 @@
       <ng-container
         *ngIf='loginForm.controls.email.errors && loginForm.controls.email.touched && loginForm.controls.email.dirty'>
         <p *ngIf='loginForm.controls.email.errors.required' style="color: red;">Enter valid email!</p>
-        <p *ngIf='loginForm.controls.email.errors.invalidEmail' style="color: red;">There is an registered account using this email!</p>
+        <!-- <p *ngIf='loginForm.controls.email.errors.invalidEmail' style="color: red;">There is an registered account using this email!</p> -->
       </ng-container>
 
       <div class="form-group">

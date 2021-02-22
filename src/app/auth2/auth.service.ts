@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
+import { Router } from '@angular/router';
 
 interface User{
   name: string;
@@ -12,17 +13,18 @@ interface User{
   providedIn: 'root'
 })
 export class AuthService {
-  firebaseUsers: string = `https://movie-finder-angular-default-rtdb.firebaseio.com/users.json`
-  user: Observable<any>
+  user$: Observable<any>
+  signedin$ = new BehaviorSubject(false)
 
-  constructor(private http: HttpClient, private firebaseAuth: AngularFireAuth) {
-    this.user = firebaseAuth.authState;
+  constructor(private http: HttpClient, private firebaseAuth: AngularFireAuth, private router: Router,) {
+    this.user$ = firebaseAuth.authState;
   }
 
   signup(email: string, password: string) {
     this.firebaseAuth
       .createUserWithEmailAndPassword(email, password)
       .then(value => {
+        //this.router.navigate(['auth/login'])
         console.log('Success!', value);
       })
       .catch(err => {
@@ -34,6 +36,8 @@ export class AuthService {
     this.firebaseAuth
       .signInWithEmailAndPassword(email, password)
       .then(value => {
+        this.signedin$.next(true)
+        console.log(this.signedin$)
         ///console.log('Nice, it worked!'); IMPLEMENT LOGIC TO SAVE WTOKEN ??? COOKIE ?? AND AUTH GUARD
       })
       .catch(err => {

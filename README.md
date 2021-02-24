@@ -1,3 +1,13 @@
+In this application I've tested & implemented several Angular features to improve my knowledge about the Framework. Some of them are:
+  - Generating modules/components/services/resolvers/custom validators/routing modules;
+  - Refactoring the application, so that every different module encapsulates it's logic
+  - Implemented routing & lazy loading for the modules that are not needed on the initial start-up;
+  - Added Firebase to create authentication & user database;
+  - Created class interfaces;
+  - Used HTTP Client to make requests;
+  - Used the Firebase authentication responses to save the user's data inside the local storage;
+
+
 # MovieFinder
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.1.

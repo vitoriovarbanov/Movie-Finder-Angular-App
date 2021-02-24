@@ -4,36 +4,33 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { Router } from '@angular/router';
 
-interface User{
-  name: string;
-  email: string;
-}
-
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  signedin$ = new BehaviorSubject(false)
+  signedin$ = new BehaviorSubject(null)
   userData
 
-  constructor(private firebaseAuth: AngularFireAuth, private router: Router) {
-    /* this.firebaseAuth.authState.subscribe((user)=>{
+  constructor(public firebaseAuth: AngularFireAuth, private router: Router) {
+    this.firebaseAuth.authState.subscribe((user)=>{
       if(user){
         this.userData = user;
+        this.signedin$.next(true)
         localStorage.setItem('user', JSON.stringify(this.userData));
         JSON.parse(localStorage.getItem('user'));
       }else{
         localStorage.setItem('user', null);
+        this.signedin$.next(false)
         JSON.parse(localStorage.getItem('user'));
       }
-    }) */
+    })
   }
 
   signup(email: string, password: string) {
     this.firebaseAuth
       .createUserWithEmailAndPassword(email, password)
       .then(value => {
-        //this.router.navigate(['auth/login'])
+        this.router.navigate(['auth/login'])
         console.log('Success!', value);
       })
       .catch(err => {
@@ -46,13 +43,8 @@ export class AuthService {
       .signInWithEmailAndPassword(email, password)
       .then((result) => {
         this.signedin$.next(true)
+        this.router.navigate(['movies'])
         console.log('Nice, it worked!', result);
-        return result
-      })
-      .then(data=>{
-        this.userData = data.user;
-        localStorage.setItem('user', JSON.stringify(this.userData));
-        JSON.parse(localStorage.getItem('user'));
       })
       .catch(err => {
         console.log('Something went wrong:',err.message);
@@ -63,8 +55,9 @@ export class AuthService {
     return this.firebaseAuth.signOut().then(() => {
       this.signedin$.next(false)
       localStorage.removeItem('user');
-      //this.router.navigate(['movies']);
+      this.router.navigate(['auth/login']);
     })
   }
+
 
 }

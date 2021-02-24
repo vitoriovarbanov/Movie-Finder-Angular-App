@@ -8,11 +8,11 @@ import { AuthService } from 'src/app/auth2/auth.service';
 })
 export class NavbarComponent implements OnInit {
   @Input() signedIn;
-  constructor(public authService: AuthService) { }
+  constructor(public authService: AuthService) {
+  }
 
 
-  ngOnInit(): void { }
-
+  ngOnInit(): void {}
 
   logout() {
     this.authService.logout()

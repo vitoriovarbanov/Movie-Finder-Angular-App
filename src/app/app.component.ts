@@ -7,23 +7,21 @@ import { AuthService } from './auth2/auth.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  signedin = false;
+  signedin;
 
-  constructor(private authService: AuthService) { }
-
-  ngOnInit() {
+  constructor(private authService: AuthService) {
     this.authService.signedin$
       .subscribe((data) => {
         this.signedin = data
       })
   }
 
+  ngOnInit() {
+
+  }
+
   logOut() {
     this.authService.logout()
-    this.authService.signedin$
-      .subscribe((signedInData) => {
-        this.signedin = signedInData
-      })
   }
 
 }

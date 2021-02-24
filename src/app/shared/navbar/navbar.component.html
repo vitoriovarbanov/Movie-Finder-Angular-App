@@ -5,8 +5,10 @@
     <a class="navbar-brand" routerLink='auth/login'>Login</a>
   </ng-container>
   <ng-container *ngIf='signedIn'>
-    <a class="navbar-brand" routerLink='movies'>Welcome</a>
+    <ng-template [ngIf]="authService.userData">
+    <a class="navbar-brand" routerLink='movies'>Welcome, {{authService.userData.email}}</a>
     <a class="navbar-brand" (click)='logout()'>Logout</a>
+    </ng-template>
   </ng-container>
 
 </nav>

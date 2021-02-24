@@ -3,6 +3,7 @@ import { MovieService } from './movie.service';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { ActivatedRoute } from '@angular/router';
+import { AuthService } from 'src/app/auth2/auth.service';
 
 @Component({
   selector: 'app-movies',
@@ -16,7 +17,8 @@ export class MoviesComponent implements OnInit {
   showInfo: boolean = false;
   private destroy$ = new Subject()
 
-  constructor(private movieService: MovieService, private route: ActivatedRoute) { }
+  constructor(private movieService: MovieService, private route: ActivatedRoute, private authService: AuthService) {
+   }
 
   ngOnInit(): void {
     //console.log(this.route.snapshot.data)

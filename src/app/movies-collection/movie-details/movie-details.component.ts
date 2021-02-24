@@ -9,6 +9,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./movie-details.component.css']
 })
 export class MovieDetailsComponent implements OnInit {
+  showModalState = false;
   movie$: MovieDetails
   id: string
   movieGenres: string;
@@ -34,6 +35,9 @@ export class MovieDetailsComponent implements OnInit {
         }) */
   }
 
+  displayModal(){
+    this.showModalState = !this.showModalState
+  }
 
 
 }

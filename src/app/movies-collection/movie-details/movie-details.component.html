@@ -9,7 +9,7 @@
 	  </li>
 	  <li class="list-group-item">Release Date: {{movie$.release_date}} </li>
   </ul>
-    <a routerLink='review' class="btn btn-default">Write a review</a>
+    <a class="btn btn-default" routerLink='review'>Write a review</a>
 	<a *ngIf="movie$.homepage" href="{{movie$.homepage}}" target="_blank" class="btn btn-default">Visit Movie
 	  Website</a>
 </div>

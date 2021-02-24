@@ -9,6 +9,7 @@ import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.co
 
 import { SingleMovieResolver } from './models/resolvers/single-movie.resolver';
 import { HomepageMoviesResolver } from './models/resolvers/homepage-movies.resolver';
+import { MovieReviewComponent } from './movies-collection/movie-review/movie-review.component';
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['auth/login']);
 
@@ -17,11 +18,11 @@ const routes: Route[] = [
   { path: 'movies/search', component: SearchedMoviesComponent },
   {
     path: 'movies/:id', component: MovieDetailsComponent, resolve: { singleMovie: SingleMovieResolver },
-    canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin }
+    canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin } ,
   },
   {
-    path: 'movies/:id/review', loadChildren: () => import('./mods/mods.module').then(m => m.ModsModule), resolve: { singleMovie: SingleMovieResolver },
-    canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin }
+    path: 'movies/:id/review', component: MovieReviewComponent, resolve: { singleMovie: SingleMovieResolver },
+    canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin } ,
   },
   { path: 'auth', loadChildren: () => import('./auth2/auth2.module').then(m => m.Auth2Module) },
   { path: '', pathMatch: 'full', redirectTo: 'movies' },

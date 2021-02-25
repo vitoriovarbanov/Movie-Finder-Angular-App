@@ -22,12 +22,10 @@ import { HomepageMoviesResolver } from './models/resolvers/homepage-movies.resol
 import { MoviesCollectionModule } from './movies-collection/movies-collection.module';
 import { SharedModule } from './shared/shared.module';
 import { AuthService } from './auth2/auth.service';
-import { FavouritesComponent } from './UserCollection/favourites/favourites.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FavouritesComponent,
   ],
   imports: [
     BrowserModule,

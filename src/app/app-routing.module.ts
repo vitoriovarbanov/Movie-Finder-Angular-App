@@ -9,6 +9,7 @@ import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.co
 
 import { SingleMovieResolver } from './models/resolvers/single-movie.resolver';
 import { HomepageMoviesResolver } from './models/resolvers/homepage-movies.resolver';
+
 import { MovieReviewComponent } from './movies-collection/movie-review/movie-review.component';
 import { SideBarComponent } from './movies-collection/movie-details/side-bar/side-bar.component';
 import { MenuRightSideComponent } from './movies-collection/movie-details/menu-right-side/menu-right-side.component';
@@ -35,6 +36,8 @@ const routes: Route[] = [
     canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin },
   },
   { path: 'auth', loadChildren: () => import('./auth2/auth2.module').then(m => m.Auth2Module) },
+  { path: 'user', loadChildren: () => import('./user-collection/user-collection.module').then(m => m.UserCollectionModule),
+  canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin } },
   { path: '', pathMatch: 'full', redirectTo: 'movies' },
   { path: '**', component: PageNotFoundComponent },
 

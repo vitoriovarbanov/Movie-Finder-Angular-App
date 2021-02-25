@@ -12,6 +12,7 @@
 	  </li>
 	  <li class="list-group-item">Release Date: {{movie$.release_date}} </li>
   </ul>
+    <button class="btn btn-default" (click)='addToFavourites()'>Add to Favourites</button>
     <a class="btn btn-default" routerLink='review'>Write a review</a>
 	<a *ngIf="movie$.homepage" href="{{movie$.homepage}}" target="_blank" class="btn btn-default">Visit Movie
 	  Website</a>

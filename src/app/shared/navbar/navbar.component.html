@@ -6,7 +6,15 @@
   </ng-container>
   <ng-container *ngIf='signedIn'>
     <ng-template [ngIf]="authService.userData">
-    <a class="navbar-brand" routerLink='movies'>Welcome, {{authService.userData.email}}</a>
+    <!-- <a class="navbar-brand" routerLink='movies'>Welcome, {{authService.userData.email}}</a> -->
+    <div class="dropdown">
+      <button class="dropbtn">Welcome, {{authService.userData.email}}</button>
+      <div class="dropdown-content">
+        <a routerLink="user/favourites">Favourites</a>
+        <a href="#">Link 2</a>
+        <a href="#">Link 3</a>
+      </div>
+    </div>
     <a class="navbar-brand" (click)='logout()'>Logout</a>
     </ng-template>
   </ng-container>

@@ -15,6 +15,7 @@ import { MovieReviewComponent } from './movie-review/movie-review.component';
 import { SideBarComponent } from './movie-details/side-bar/side-bar.component';
 import { MenuRightSideComponent } from './movie-details/menu-right-side/menu-right-side.component';
 import { DescriptionComponent } from './movie-details/description/description.component';
+import { PopularityComponent } from './movie-details/popularity/popularity.component';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { DescriptionComponent } from './movie-details/description/description.co
     SideBarComponent,
     MenuRightSideComponent,
     DescriptionComponent,
+    PopularityComponent,
   ],
   imports: [
     CommonModule,

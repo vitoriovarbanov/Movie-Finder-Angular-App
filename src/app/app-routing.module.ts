@@ -13,6 +13,7 @@ import { MovieReviewComponent } from './movies-collection/movie-review/movie-rev
 import { SideBarComponent } from './movies-collection/movie-details/side-bar/side-bar.component';
 import { MenuRightSideComponent } from './movies-collection/movie-details/menu-right-side/menu-right-side.component';
 import { DescriptionComponent } from './movies-collection/movie-details/description/description.component';
+import { PopularityComponent } from './movies-collection/movie-details/popularity/popularity.component';
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['auth/login']);
 
@@ -25,6 +26,7 @@ const routes: Route[] = [
     children: [
       { path: '', component: SideBarComponent },
       { path: 'description', component: DescriptionComponent },
+      { path: 'popularity', component: PopularityComponent },
       { path: '', outlet: 'menuright', component: MenuRightSideComponent},
     ]
   },

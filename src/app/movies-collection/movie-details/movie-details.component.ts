@@ -9,10 +9,9 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./movie-details.component.css']
 })
 export class MovieDetailsComponent implements OnInit {
-  showModalState = false;
   movie$: MovieDetails
-  id: string
   movieGenres: string;
+  similarMovies;
 
   constructor(private movieService: MovieService, // S RESOLVERA MOJEM DA MAHNEM DEPENDECY INJ NA SERVICE, ZASHTOTO GO VIKAME DIREKTNO V SINGLE_MOVIE_RESOLVER!!
     private route: ActivatedRoute) {
@@ -34,10 +33,5 @@ export class MovieDetailsComponent implements OnInit {
           this.movieGenres = this.movie$.genres.map(el=>el['name']).join(', ')
         }) */
   }
-
-  displayModal(){
-    this.showModalState = !this.showModalState
-  }
-
 
 }

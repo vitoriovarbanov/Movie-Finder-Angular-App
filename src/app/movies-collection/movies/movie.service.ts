@@ -44,4 +44,11 @@ export class MovieService {
     return this.http.get<Movie[]>(`${this.baseUrl}search/movie${this.getMovieOverview}&query=${query}`)
       .pipe(pluck('results'))
   }
+
+  getSimilarMovies(id){
+    return this.http.get<{title: string}[]>(`https://api.themoviedb.org/3/movie/${id}/alternative_titles${this.getMovieOverview}`)
+      .pipe(map((data)=>{
+        return data['titles']
+      }))
+  }
 }

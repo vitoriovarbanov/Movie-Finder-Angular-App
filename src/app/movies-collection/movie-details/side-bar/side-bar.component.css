@@ -1,0 +1,12 @@
+.container-sidebar {
+  position: fixed;
+  top: 50%;
+  left: 10%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+  border: 1px solid black;
+}
+
+.container-sidebar ul {
+  list-style-type: none;
+}

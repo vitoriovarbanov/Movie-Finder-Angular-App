@@ -18,7 +18,6 @@ export class MovieDetailsComponent implements OnInit {
     }
 
   ngOnInit() {
-    //console.log(this.route.snapshot.data)
     this.movie$ = this.route.snapshot.data['singleMovie'];          // RESOLVER!!!!
     this.movieGenres = this.movie$.genres.map(el=>el['name']).join(', ');
 

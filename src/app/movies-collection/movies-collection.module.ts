@@ -14,6 +14,7 @@ import { SearchFormComponent } from './search-form/search-form.component';
 import { MovieReviewComponent } from './movie-review/movie-review.component';
 import { SideBarComponent } from './movie-details/side-bar/side-bar.component';
 import { MenuRightSideComponent } from './movie-details/menu-right-side/menu-right-side.component';
+import { DescriptionComponent } from './movie-details/description/description.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { MenuRightSideComponent } from './movie-details/menu-right-side/menu-rig
     MovieReviewComponent,
     SideBarComponent,
     MenuRightSideComponent,
+    DescriptionComponent,
   ],
   imports: [
     CommonModule,

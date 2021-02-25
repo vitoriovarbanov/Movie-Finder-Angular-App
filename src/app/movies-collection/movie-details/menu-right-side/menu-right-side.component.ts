@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-menu-right-side',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuRightSideComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) {
+      this.route.params.subscribe(params=>params['id'])
+   }
 
   ngOnInit(): void {
   }

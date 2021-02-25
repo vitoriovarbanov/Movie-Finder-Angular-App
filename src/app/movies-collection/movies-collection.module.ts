@@ -13,6 +13,7 @@ import { SearchedMoviesComponent } from './searched-movies/searched-movies.compo
 import { SearchFormComponent } from './search-form/search-form.component';
 import { MovieReviewComponent } from './movie-review/movie-review.component';
 import { SideBarComponent } from './movie-details/side-bar/side-bar.component';
+import { MenuRightSideComponent } from './movie-details/menu-right-side/menu-right-side.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { SideBarComponent } from './movie-details/side-bar/side-bar.component';
     SearchFormComponent,
     MovieReviewComponent,
     SideBarComponent,
+    MenuRightSideComponent,
   ],
   imports: [
     CommonModule,

@@ -11,6 +11,7 @@ import { SingleMovieResolver } from './models/resolvers/single-movie.resolver';
 import { HomepageMoviesResolver } from './models/resolvers/homepage-movies.resolver';
 import { MovieReviewComponent } from './movies-collection/movie-review/movie-review.component';
 import { SideBarComponent } from './movies-collection/movie-details/side-bar/side-bar.component';
+import { MenuRightSideComponent } from './movies-collection/movie-details/menu-right-side/menu-right-side.component';
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['auth/login']);
 
@@ -21,7 +22,8 @@ const routes: Route[] = [
     path: 'movies/:id', component: MovieDetailsComponent, resolve: { singleMovie: SingleMovieResolver },
     canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin },
     children: [
-      { path: '', component: SideBarComponent }
+      { path: '', component: SideBarComponent },
+      { path: '', outlet: 'menuright', component: MenuRightSideComponent}
     ]
   },
   {

@@ -3,20 +3,19 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { AngularFireDatabase, AngularFireObject, AngularFireList } from '@angular/fire/database';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   signedin$ = new BehaviorSubject(null)
-  id = new BehaviorSubject(null)/* new Observable((observer)=>{
-    if(localStorage.getItem('firebaseId')){
-      observer.next(localStorage.getItem('firebaseId'))
-    }
-  }) */
+  id = new BehaviorSubject(null)
+  newUserData: AngularFireList<Object>
   userData
 
-  constructor(public firebaseAuth: AngularFireAuth, private router: Router, private http: HttpClient) {
+  constructor(public firebaseAuth: AngularFireAuth, private db: AngularFireDatabase,
+    private router: Router, private http: HttpClient) {
     this.firebaseAuth.authState.subscribe((user)=>{
       if(user){
         this.userData = user;
@@ -33,8 +32,7 @@ export class AuthService {
         let id = userDatabaseMail[0]
         localStorage.setItem('firebaseId', id)
         this.id.next(localStorage.getItem('firebaseId'))
-        //console.log(localStorage.getItem('firebaseId'))
-      }
+        }
     })
       }else{
         localStorage.setItem('user', null);
@@ -44,10 +42,12 @@ export class AuthService {
     })
   }
 
-  signup(email: string, password: string) { // MUST ADD REGISTERED USER TO DATABASE WITH EMAIL,FAVOURITE MOVIES, NAME
+  signup(email: string, password: string) {
     this.firebaseAuth
       .createUserWithEmailAndPassword(email, password)
       .then(value => {
+        this.newUserData = this.db.list(`/users`) as AngularFireList<any>;
+        this.newUserData.push({ email: email, favourites: ['no'] });
         this.router.navigate(['auth/login'])
         console.log('Success!', value);
       })

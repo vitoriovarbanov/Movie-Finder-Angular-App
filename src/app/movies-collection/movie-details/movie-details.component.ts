@@ -17,7 +17,7 @@ export class MovieDetailsComponent implements OnInit {
     private route: ActivatedRoute) {}
 
   ngOnInit() {
-    console.log(this.route.snapshot.data['singleMovie'])
+
     this.movie$ = this.route.snapshot.data['singleMovie'];          // RESOLVER!!!!
     this.movieGenres = this.movie$.genres.map(el => el['name']).join(', ');
 

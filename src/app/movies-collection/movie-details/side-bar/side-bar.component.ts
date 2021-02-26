@@ -15,7 +15,7 @@ export class SideBarComponent implements OnInit {
   ngOnInit(): void {
     this.movieService.getSimilarMovies((this.route.snapshot.data['singleMovie'].id))
     .subscribe((data)=>{
-      this.similarMovies = data
+      this.similarMovies = data.slice(0,4)
     })
 
   }

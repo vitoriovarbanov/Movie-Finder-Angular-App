@@ -60,9 +60,8 @@ export class MovieService {
   }
 
   addFavouriteMovieToFirebase(userID,movieID,title,posterPath,homepage){
-    //id,title,posterPath,genres
     this.favouritesRef = this.db.list(`/users/${userID}/favourites`) as AngularFireList<any>;
     this.favouritesRef.push({ id: movieID, title , image: posterPath, url: homepage });
-      return this.favouritesRef;
+    return this.favouritesRef;
   }
 }

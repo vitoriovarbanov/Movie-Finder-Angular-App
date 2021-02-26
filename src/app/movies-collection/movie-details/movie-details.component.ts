@@ -23,6 +23,9 @@ export class MovieDetailsComponent implements OnInit {
           const userEmail = userLocalStorage.email;
           const userDatabaseMail = arr.find(x=>x[1].email === userEmail)
           this.userId = userDatabaseMail[0]
+          if(!localStorage.hasOwnProperty('firebaseId')){
+            localStorage.setItem('firebaseId', this.userId)
+          }
         })
   }
 

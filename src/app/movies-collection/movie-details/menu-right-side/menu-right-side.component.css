@@ -1,11 +1,14 @@
 .container-sidebar {
-  position: absolute;
-  top: 50%;
-  right: 0%;
+  position: fixed;
+  top: 10%;
+  left: 2px;
+  width: 200px;
   /* bring your own prefixes */
-  transform: translate(-50%, -50%);
+  /* transform: translate(-50%, -50%); */
   border: 1px solid black;
 }
+
+
 
 .container-sidebar ul {
   list-style-type: none;

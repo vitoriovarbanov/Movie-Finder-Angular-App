@@ -8,11 +8,8 @@ import { AuthService } from 'src/app/auth2/auth.service';
 })
 export class NavbarComponent implements OnInit {
   @Input() signedIn;
-  id: string
-  constructor(public authService: AuthService) {
-    let id = localStorage.getItem('firebaseId')
-    this.id = id
-  }
+  @Input() id: string
+  constructor(public authService: AuthService) { }
 
 
   ngOnInit(): void {}

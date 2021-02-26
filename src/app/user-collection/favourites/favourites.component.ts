@@ -10,9 +10,7 @@ import { UserService } from '../user.service';
 export class FavouritesComponent implements OnInit {
   response
 
-  constructor(private route: ActivatedRoute, private userService: UserService) {
-    console.log(this.route.snapshot.params['id'])
-  }
+  constructor(private route: ActivatedRoute, private userService: UserService) {}
 
   ngOnInit(): void {
     this.userService.getUserFavourites(this.route.snapshot.params['id'])

@@ -16,14 +16,14 @@ export class MoviesComponent implements OnInit {
   upcomingMovies;
   showInfo: boolean = false;
   private destroy$ = new Subject()
+  userId: string
 
-  constructor(private movieService: MovieService, private route: ActivatedRoute, private authService: AuthService) {
-   }
+  constructor(private movieService: MovieService, private route: ActivatedRoute, private authService: AuthService) {}
 
   ngOnInit(): void {
     //console.log(this.route.snapshot.data)
     this.responses = this.route.snapshot.data.homepageMovies['results']
-    this.responses = this.responses.slice(0,5)
+    this.responses = this.responses.slice(0, 5)
     /* this.movieService.getPopularMovies()
       .pipe(takeUntil(this.destroy$))             // NE E ZADULJITELNO ZA HTTP REQ DA IZPOLZVAME takeUntil
       .subscribe((movieData) => {
@@ -31,9 +31,9 @@ export class MoviesComponent implements OnInit {
         this.responses = this.responses.slice(0,5)
       }) */
     this.movieService.getUpcomingMovies()
-        .subscribe((upMovies)=>{
-            this.upcomingMovies = upMovies;
-        })
+      .subscribe((upMovies) => {
+        this.upcomingMovies = upMovies;
+      })
   }
 
   moviesInTheaters$ = this.movieService.getMoviesInTheaters()
@@ -48,7 +48,7 @@ export class MoviesComponent implements OnInit {
   } */
 
 
- // IT IS NOT NECCESARY TO UNSUBSCRIBE FROM HTTP REQUEST!!!!!!!!!!! YOU CAN SKIP THE NEXT LINES OF CODE
+  // IT IS NOT NECCESARY TO UNSUBSCRIBE FROM HTTP REQUEST!!!!!!!!!!! YOU CAN SKIP THE NEXT LINES OF CODE
   ngOnDestroy(): void {
     this.destroy$.next();  // trigger the unsubscribe
     this.destroy$.complete(); // finalize & clean up the subject stream

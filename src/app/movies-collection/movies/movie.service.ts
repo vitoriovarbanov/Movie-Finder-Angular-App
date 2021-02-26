@@ -55,10 +55,6 @@ export class MovieService {
       }))
   }
 
-  getUserFirebase(){
-    return this.http.get(`https://movie-finder-angular-default-rtdb.firebaseio.com/users.json`)
-  }
-
   addFavouriteMovieToFirebase(userID,movieID,title,posterPath,homepage){
     this.favouritesRef = this.db.list(`/users/${userID}/favourites`) as AngularFireList<any>;
     this.favouritesRef.push({ id: movieID, title , image: posterPath, url: homepage });

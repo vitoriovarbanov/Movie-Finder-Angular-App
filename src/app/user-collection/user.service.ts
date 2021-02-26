@@ -11,7 +11,6 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   getUserFavourites(id){
-    //const id = localStorage.getItem('firebaseId')
     return this.http.get(`${this.baserUrl}${id}/favourites.json`)
   }
 }

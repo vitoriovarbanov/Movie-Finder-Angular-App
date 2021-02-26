@@ -4,13 +4,16 @@ import {
   RouterStateSnapshot,
   ActivatedRouteSnapshot
 } from '@angular/router';
-import { Observable, of } from 'rxjs';
+import { UserService } from './user.service';
+import { FavouriteMovie } from '../models/favourite-movie'
 
 @Injectable({
   providedIn: 'root'
 })
-export class FavouriteMoviesResolver implements Resolve<boolean> {
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
-    return of(true);
+export class FavouriteMoviesResolver implements Resolve<any> {
+  constructor(private userService: UserService){}
+
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+    return this.userService.getUserFavourites()
   }
 }

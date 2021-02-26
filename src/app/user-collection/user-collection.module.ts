@@ -10,6 +10,6 @@ import { FavouritesComponent } from './favourites/favourites.component';
   imports: [
     CommonModule,
     UserCollectionRoutingModule
-  ]
+  ],
 })
 export class UserCollectionModule { }

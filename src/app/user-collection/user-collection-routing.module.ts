@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { FavouritesComponent } from './favourites/favourites.component';
 
 const routes: Routes = [
-  {path: 'favourites', component: FavouritesComponent}
+  { path: 'favourites/:id', component: FavouritesComponent}
 ];
 
 @NgModule({

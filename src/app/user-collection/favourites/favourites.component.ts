@@ -15,7 +15,9 @@ export class FavouritesComponent implements OnInit {
   ngOnInit(): void {
     this.userService.getUserFavourites(this.route.snapshot.params['id'])
       .subscribe(data=>{
-        this.response = Object.values(data)
+        const filtered = Object.values(data)
+        this.response = filtered.filter(x=>x!=='no')
+        //this.response = Object.values(data)
       })
   }
 

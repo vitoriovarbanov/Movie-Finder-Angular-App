@@ -4,7 +4,6 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { AngularFireDatabase, AngularFireObject, AngularFireList } from '@angular/fire/database';
-import { flatMap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'

@@ -12,4 +12,8 @@ export class UserService {
   getUserFavourites(id){
     return this.http.get(`${this.baserUrl}${id}/favourites.json`)
   }
+
+  removeMovie(movieId,userId){
+    return this.http.delete(`${this.baserUrl}${userId}/favourites/${movieId}.json`)
+  }
 }

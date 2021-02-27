@@ -9,7 +9,7 @@
         </div>
         <a href="{{res.url}}" target="_blank" class="card-text"><h6>Visit Website</h6></a>
         <div class="card-footer text-muted">
-          <button class="btn btn-primary" routerLink='../../movies/{{res.id}}'>Remove From Favourites</button>
+          <button class="btn btn-primary" (click)='removeMovie(res.id)'>Remove From Favourites</button>
         </div>
       </div>
     </div>

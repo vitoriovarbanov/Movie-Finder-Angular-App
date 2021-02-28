@@ -1,5 +1,11 @@
 <div class="jumbotron">
   <h3>Your Favourite Movies</h3>
+  <ng-container *ngIf='notification'>
+    <div class="alert alert-dismissible alert-success">
+      <button type="button" class="close" data-dismiss="alert" (click)='closeNotification()'>&times;</button>
+      <strong>Well done!</strong> You have successfully removed this movie from your collection!
+    </div>
+  </ng-container>
   <div class="row" >
     <div class="col-lg-2" *ngFor="let res of response">
       <div class="card mb-3">
@@ -15,3 +21,4 @@
     </div>
   </div>
 </div>
+

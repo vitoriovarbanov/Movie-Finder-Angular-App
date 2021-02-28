@@ -12,6 +12,7 @@ export class MovieDetailsComponent implements OnInit {
   movie$: MovieDetails
   movieGenres: string;
   similarMovies;
+  notification: boolean = false;
 
   constructor(private movieService: MovieService, // S RESOLVERA MOJEM DA MAHNEM DEPENDECY INJ NA SERVICE, ZASHTOTO GO VIKAME DIREKTNO V SINGLE_MOVIE_RESOLVER!!
     private route: ActivatedRoute) {}
@@ -38,5 +39,10 @@ export class MovieDetailsComponent implements OnInit {
     this.movieService.addFavouriteMovieToFirebase(userId, this.route.params['_value'].id, this.movie$.title,
     posterPath, this.movie$.homepage )
         .snapshotChanges().subscribe(data=>console.log(data))
+    this.notification = true
+  }
+
+  closeNotification(){
+    this.notification = !this.notification
   }
 }

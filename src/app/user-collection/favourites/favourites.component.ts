@@ -11,6 +11,7 @@ import { flatMap, map } from 'rxjs/operators';
 export class FavouritesComponent implements OnInit {
   response
   ChangeDetectorRef: any;
+  notification: boolean = false;
 
   constructor(private route: ActivatedRoute, private userService: UserService,
     private zone: NgZone) {}
@@ -41,8 +42,12 @@ export class FavouritesComponent implements OnInit {
     this.userService.getUserFavourites(this.route.snapshot.params['id'])
       .subscribe(data=>{
         this.response =  Object.values(data)
+        this.notification = true;
       })
   }
 
+  closeNotification(){
+    this.notification = !this.notification
+  }
 
 }

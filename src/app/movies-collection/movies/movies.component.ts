@@ -23,7 +23,7 @@ export class MoviesComponent implements OnInit {
   ngOnInit(): void {
     //console.log(this.route.snapshot.data)
     this.responses = this.route.snapshot.data.homepageMovies['results']
-    this.responses = this.responses.slice(0, 5)
+    this.responses = this.responses.slice(0, 6)
     /* this.movieService.getPopularMovies()
       .pipe(takeUntil(this.destroy$))             // NE E ZADULJITELNO ZA HTTP REQ DA IZPOLZVAME takeUntil
       .subscribe((movieData) => {

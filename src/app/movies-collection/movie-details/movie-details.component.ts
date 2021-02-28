@@ -39,10 +39,13 @@ export class MovieDetailsComponent implements OnInit {
     this.movieService.addFavouriteMovieToFirebase(userId, this.route.params['_value'].id, this.movie$.title,
     posterPath, this.movie$.homepage )
         .snapshotChanges().subscribe(data=>console.log(data))
-    this.notification = true
+    this.notification = true;
+    setTimeout(()=>{
+      this.notification = false;
+    },3000)
   }
 
   closeNotification(){
-    this.notification = !this.notification
+    this.notification = false;
   }
 }

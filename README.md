@@ -6,6 +6,8 @@ In this application I've tested & implemented several Angular features to improv
   - Created class interfaces;
   - Used HTTP Client to make requests;
   - Used the Firebase authentication responses to save the user's data inside the local storage;
+  - Added Authentication Guards to protect routes
+  - Built Reactive Login and Registration forms, that use Built-In, Custom and Async Validators
 
 
 # MovieFinder

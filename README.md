@@ -4,11 +4,12 @@ In this application I've tested & implemented several Angular features to improv
   - Implemented routing & lazy loading for the modules that are not needed on the initial start-up;
   - Added Firebase to create authentication & user database;
   - Created class interfaces;
-  - Used HTTP Client to make requests;
+  - Used TypeScript classes and syntax
   - Used the Firebase authentication responses to save the user's data inside the local storage;
   - Added Authentication Guards to protect routes
   - Built Reactive Login and Registration forms, that use Built-In, Custom and Async Validators
   - Using the Http object for Ajax calls along with RxJS observables
+  - Implemented RxJs Behaviour Subjects
 
 
 # MovieFinder

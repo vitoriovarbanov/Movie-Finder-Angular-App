@@ -39,3 +39,19 @@
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+
+a.navbar-brand {
+  padding-left : 10px;
+  }
+
+  button.dropbtn {
+    color : rgb(255, 255, 255);
+    background-color : rgb(255, 255, 255);
+    border-top-color : rgb(255, 255, 255);
+    border-bottom-color : rgb(255, 255, 255);
+    border-left-color : rgb(255, 255, 255);
+    border-right-color : rgb(255, 255, 255);
+    border-color : rgb(255, 255, 255);
+    box-shadow : rgb(255,255, 255) 0px 0px 0px;
+    }

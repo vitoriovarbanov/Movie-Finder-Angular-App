@@ -41,7 +41,7 @@ export class FavouritesComponent implements OnInit {
   reRenderMovies(){
     this.userService.getUserFavourites(this.route.snapshot.params['id'])
       .subscribe(data=>{
-        this.response =  Object.values(data)
+        this.response = Object.values(data)
         this.notification = true;
       })
   }

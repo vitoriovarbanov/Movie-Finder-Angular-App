@@ -1,0 +1,14 @@
+label.form-control-label {
+  font-size: 22px;
+  }
+
+label.col-form-label {
+  font-size: 22px;
+  }
+  button.btn.btn-default.mt-2.buttonValid {
+    width: 100px;
+    }
+
+button.btn.btn-default.mt-2{
+  width: 100px;
+}

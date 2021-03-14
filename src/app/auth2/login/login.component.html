@@ -1,10 +1,10 @@
 <div class="jumbotron">
   <div class="container">
-    <h3>Please enter enter Login credentials:</h3>
+    <h3>Please enter your login credentials:</h3>
     <form id='registerForm' [formGroup]='loginForm' (ngSubmit)='onLoginClick()'>
 
       <div class="form-group">
-        <label class="form-control-label" for="email">Email</label>
+        <label class="form-control-label" for="email">Email:</label>
         <input type="email" class="form-control" formControlName='email'
           [ngClass]="{'is-invalid': loginForm.controls.email.invalid && loginForm.controls.email.touched,
          'is-valid': loginForm.controls.email.valid && loginForm.controls.email.touched}">
@@ -16,7 +16,7 @@
       </ng-container>
 
       <div class="form-group">
-        <label class="col-form-label">Password</label>
+        <label class="col-form-label">Password:</label>
         <input type="password" class="form-control" formControlName='password'>
       </div>
 

@@ -16,7 +16,7 @@ import { MenuRightSideComponent } from './movies-collection/movie-details/menu-r
 import { DescriptionComponent } from './movies-collection/movie-details/description/description.component';
 import { PopularityComponent } from './movies-collection/movie-details/popularity/popularity.component';
 
-const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['auth/login']);
+const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['auth/register']);
 
 const routes: Route[] = [
   { path: 'movies', component: MoviesComponent, resolve: { homepageMovies: HomepageMoviesResolver } },

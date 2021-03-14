@@ -8,3 +8,34 @@
 .card.mb-3 {
   height: 100%;
 }
+
+div.card-footer.text-muted {
+  color : rgb(122, 130, 136);
+  background-color : rgb(81, 89, 96);
+  border-top-color : rgba(0, 0, 0, 0.6);
+  border-bottom-color : rgba(0, 0, 0, 0.6);
+  border-left-color : rgba(0, 0, 0, 0.6);
+  border-right-color : rgba(0, 0, 0, 0.6);
+  border-color : rgba(0, 0, 0, 0.6);
+  box-shadow : rgb(0, 0, 0) 0px 0px 0px;
+  padding-top : 4px;
+  padding-left : 85px;
+  padding-bottom : 4px;
+  }
+
+  div.card-body {
+    color : rgb(170, 170, 170);
+    background-color : rgba(0, 0, 0, 0);
+    border-top-color : rgb(170, 170, 170);
+    border-bottom-color : rgb(170, 170, 170);
+    border-left-color : rgb(170, 170, 170);
+    border-right-color : rgb(170, 170, 170);
+    border-color : rgb(170, 170, 170);
+    box-shadow : rgb(0, 0, 0) 0px 0px 0px;
+    border-radius : 0px;
+    text-align: center;
+    }
+h6 {
+  padding-right: 30px;
+  text-align: center;
+  }
